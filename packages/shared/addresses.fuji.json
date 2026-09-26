@@ -1,0 +1,9 @@
+{
+  "chainId": 43113,
+  "deployedAtBlock": 58735139,
+  "deployer": "0x40f3B5e55E9fa87Cedf33593a3c07c11DF79663e",
+  "mockUSDC": "0x07baf6b61ecceCec42661C42c20fAC682A5184aa",
+  "paymentRouter": "0x0ebcA70FC57Ea3493300090dbBDc0A5d9D0eA0C3",
+  "quoteSigner": "0x6DBa2fa8fEC20F799041685533048f8F86695C88",
+  "treasury": "0x39609BC1007DBD2863979577cE0961F528389c5E"
+}

@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  authId        String    @unique
+  walletAddress String    @unique
+  createdAt     DateTime  @default(now())
+  payments      Payment[]
+}
+
+enum PaymentStatus {
+  QUOTED
+  SUBMITTED
+  CONFIRMED
+  PAID_OUT
+  EXPIRED
+  FAILED
+}
+
+model Payment {
+  id            String        @id @default(cuid())
+  quoteId       String        @unique
+  userId        String
+  user          User          @relation(fields: [userId], references: [id])
+  token         String
+  tokenAmount   String
+  thbSatang     Int
+  feeBps        Int
+  feeSatang     Int
+  merchantId    String
+  merchantName  String?
+  rateUsed      Float
+  expiry        DateTime
+  status        PaymentStatus @default(QUOTED)
+  txHash        String?
+  payoutRef     String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}

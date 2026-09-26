@@ -1,0 +1,4 @@
+node_modules/
+
+# local tooling state, not project source
+.claude/
